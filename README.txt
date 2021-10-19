@@ -2,8 +2,10 @@
 
 Referecnias
 
+https://es.reactjs.org/docs
+https://es.reactjs.org/docs/thinking-in-react.html
 https://es.reactjs.org/docs/create-a-new-react-app.html
-
+https://es.reactjs.org/docs/react-component.html
 
 Instrucciones
 
@@ -25,6 +27,7 @@ PrimeReact está disponible en npm, asi que si queremos integrarlo a nuetra app 
 
 1.- npm install primereact --save
 2.- npm install primeicons --save
+3.- npm install react-transition-group
 
 La mayoría de los componentes de PrimeReact (95%) son nativos y 
 hay algunas excepciones que tienen dependencias de terceros, como Google Maps para GMap.

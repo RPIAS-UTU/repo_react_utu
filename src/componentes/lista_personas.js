@@ -1,11 +1,22 @@
 import React from 'react';
-
+// import '../../node_modules/primereact/resources/primereact.min.css'; //Core CSS
+// import '../../node_modules/primeicons/primeicons.css'; //Iconos
 import {DataTable} from '../../node_modules/primereact/datatable';
+import {Column} from '../../node_modules/primereact/column';
 
 class Personas extends React.Component
 {
 
-
+    // Si no inicializas el estado y no enlazas los métodos, no necesitas implementar un constructor para tu componente React.
+    // El constructor para un componente React es llamado antes de ser montado. Al implementar el constructor para una subclase React.Component, deberías llamar a super(props) antes que cualquier otra instrucción. De otra forma, this.props no estará definido en el constructor, lo que puede ocasionar a errores.
+    // Normalmente, los constructores de React sólo se utilizan para dos propósitos:
+    // Para inicializar un estado local asignando un objeto al this.state.
+    // Para enlazar manejadores de eventos a una instancia.
+    // No debes llamar setState() en el constructor(). En su lugar, 
+    // si su componente necesita usar el estado local, asigna directamente el estado inicial 
+    // al this.state directamente en el constructor.
+    // El constructor es el único lugar donde debes asignar this.state directamente. 
+    // En todos los demás métodos, debes usar this.setState() en su lugar.
     constructor(props)
     {
         super(props);
@@ -16,150 +27,33 @@ class Personas extends React.Component
         }
     }
 
-    
+    // componentDidMount() se invoca inmediatamente después de que un componente se monte
+    // (se inserte en el árbol). La inicialización que requiere nodos DOM debería ir aquí. 
+    // Si necesita cargar datos desde un punto final remoto, este es un buen lugar para 
+    // instanciar la solicitud de red.
     componentDidMount()
     {
-        this.cargarLlamados();
+        this.cargarPersonas();
     };
 
+    // El método render() es el único método requerido en un componente de clase.
+    // Cuando se llama, debe examinar a this.props y this.state.
     render()
     {
         return(
-        <div className="llamados">
-            <Toolbar className="p-mb-4" left={this.elementosIzquierdaLlamados.bind(this)} right={this.elementosDerechaLlamados.bind(this)}>
-
-            </Toolbar>
-            
-            <DataTable ref={(el) => { this.dtLlamados = el; }} value={this.state.llamados} paginator  dataKey="llamadoId"
-             paginatorTemplate="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
-             currentPageReportTemplate="Mostrando {first} de {last}" rows={10} rowsPerPageOptions={[10,20,50]}
-             selectionMode="single" loading={this.state.loadingLlamados}>
-                 
-                {
-                    this.columnasLlamados.map((col, index) => <Column key={index} field={col.field} header={col.header} style={{fontWeight: 'bold'}} sortable={true} />) 
-                }
-
-                {
-                    this.state.llamados.length > 0
-                    ? <Column header = "Opciones" body={this.botonesLlamado.bind(this)}></Column>
-                    : null
-                }
-
-            </DataTable>
-
-            {
-                this.state.llamadoSeleccionado != null 
-                ?<Dialog className="p-fluid" visible={this.state.verLlamadoDialog} onHide={this.cerrarVerLlamado.bind(this)}
-                header="Detalles" >
-                    <div className="flex justify-content-center flex-wrap card-container yellow-container">
-                        <div className="inline-block text-center card-container m-1">
-                            <div className="font-bold text-white bg-blue-500 p-2 border-round">
-                                Id
-                            </div>
-                            <p className="surface-overlay p-2 m-0 font-bold">
-                                {this.state.llamadoSeleccionado.llamadoId}
-                            </p>
-                        </div>
-                        <div className="inline-block text-center card-container m-1">
-                            <div className="font-bold text-white bg-blue-500 p-2 border-round">
-                                Codigo
-                            </div>
-                            <p className="surface-overlay p-2 m-0 font-bold">
-                                {this.state.llamadoSeleccionado.codigo}
-                            </p>
-                        </div>
-                        <div className="inline-block text-center card-container m-1">
-                            <div className="font-bold text-white bg-orange-600 p-2 border-round">
-                                Fecha Inicio
-                            </div>
-                            <p className="surface-overlay p-2 m-0 font-bold">
-                                {this.state.llamadoSeleccionado.fechaInicio}
-                            </p>
-                        </div>
-                        <div className="inline-block text-center card-container m-1">
-                            <div className="font-bold text-white bg-orange-600 p-2 border-round">
-                                Fecha Fin
-                            </div>
-                            <p className="surface-overlay p-2 m-0 font-bold">
-                                {this.state.llamadoSeleccionado.fechaFin}
-                            </p>
-                        </div>
-                    </div>
-
-                    <div className="block text-center card-container m-1">
-                        <div className="font-bold text-white bg-blue-700 p-2 border-round">
-                            Titulo
-                        </div>
-                        <p className="surface-overlay p-2 m-0 font-bold">
-                            {this.state.llamadoSeleccionado.titulo}
-                        </p>
-                    </div>
-
-                    <div className="flex justify-content-center flex-wrap card-container yellow-container">
-                        <div className="inline-block text-center card-container m-1">
-                            <div className="font-bold text-white bg-blue-700 p-2 border-round">
-                                Tipo
-                            </div>
-                            <p className="surface-overlay p-2 m-0 font-bold">
-                                {this.state.llamadoSeleccionado.tipo}
-                            </p>
-                        </div>
-                        <div className="inline-block text-center card-container m-1">
-                            <div className="font-bold text-white bg-blue-700 p-2 border-round">
-                                Alcance
-                            </div>
-                            <p className="surface-overlay p-2 m-0 font-bold">
-                                {this.state.llamadoSeleccionado.alcance}
-                            </p>
-                        </div>
-                        <div className="inline-block text-center card-container m-1">
-                            <div className="font-bold text-white bg-blue-700 p-2 border-round">
-                                Estado
-                            </div>
-                            <p className="surface-overlay p-2 m-0 font-bold">
-                                {this.state.llamadoSeleccionado.estado}
-                            </p>
-                        </div>
-                        <div className="inline-block text-center card-container m-1">
-                            <div className="font-bold text-white bg-blue-700 p-2 border-round">
-                                Id Articulo
-                            </div>
-                            <p className="surface-overlay p-2 m-0 font-bold">
-                                {this.state.llamadoSeleccionado.idArticuloDetalle}
-                            </p>
-                        </div>
-                        <div className="inline-block text-center card-container m-1">
-                            <div className="font-bold text-white bg-blue-700 p-2 border-round">
-                                Publicado
-                            </div>
-                            <p className="surface-overlay p-2 m-0 font-bold">
-                                {this.state.llamadoSeleccionado.publicado ? "SI" : "NO"}
-                            </p>
-                        </div>
-                        <div className="inline-block text-center card-container m-1">
-                            <div className="font-bold text-white bg-orange-600 p-2 border-round">
-                                Total de Inscriptos
-                            </div>
-                            <p className="surface-overlay p-2 m-0 font-bold">
-                                {this.state.totalInscriptos}
-                            </p>
-                        </div>
-                    </div>
-                    <Toolbar className="p-mb-4" left={this.elementosIzquierdaInscriptos.bind(this)} right={this.elementosDerechaInscriptos.bind(this)}></Toolbar>
-                    <DataTable ref={(el) => { this.dtInscriptos = el; }} value={this.state.inscriptos} paginator  dataKey="inscriptoId"
-                    paginatorTemplate="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
-                    currentPageReportTemplate="Mostrando {first} de {last}" rows={100} rowsPerPageOptions={[100,200,500]}
-                    selectionMode="single" loading={this.state.loadingInscriptos}>
-                        
-                        {
-                            this.columnasInscriptos.map((col, index) => <Column key={index} field={col.field} header={col.header} style={{fontWeight: 'bold'}} sortable={true} />) 
-                        }
-
+        <div>
+           <div>
+                <div className="card">
+                    <DataTable value={this.state.personas}>
+                        <Column field="cedula" header="cedula"></Column>
+                        <Column field="primer_nombre" header="primer_nombre"></Column>
+                        <Column field="segundo_nombre" header="segundo_nombre"></Column>
+                        <Column field="primer_apellido" header="primer_apellido"></Column>
+                        <Column field="segundo_apellido" header="segundo_apellido"></Column>
+                        <Column field="fecha_nac" header="fecha_nac"></Column>
                     </DataTable>
-
-                </Dialog>
-                : null
-            }
+                </div>
+            </div>
             
         </div>
         );
@@ -167,24 +61,22 @@ class Personas extends React.Component
     };
 
 
-    cargarLlamados()
+    cargarPersonas()
     {
         this.setState({personas: []});
 
-        var url = "http://localhost:8000/repo_php_utu/datos/api_rest/personas";
+        var url = "http://localhost:8000/repo_php_utu/datos/api_rest/personas?pagina=2";
 
-        fetch(url)
+        fetch(url,{'mode': 'no-cors'})
         .then(respuesta => respuesta.json())
         .then((datosRespuesta) => 
         {
             this.setState({loadingPersonas: true})
-            this.setState({ datosCargados: true, llamados: datosRespuesta})
-        })
-        .catch(console.log)
-        .finally(() => this.setState({loadingPersonas: false}));
-
-
+            this.setState({ datosCargados: true, personas: datosRespuesta})
+        }).catch(console.log).finally(() => this.setState({loadingPersonas: false}));
     };
 
 
 }
+
+export default Personas;
