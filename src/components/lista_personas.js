@@ -1,8 +1,6 @@
 import React from 'react';
-// import '../../node_modules/primereact/resources/primereact.min.css'; //Core CSS
-// import '../../node_modules/primeicons/primeicons.css'; //Iconos
-import {DataTable} from '../../node_modules/primereact/datatable';
-import {Column} from '../../node_modules/primereact/column';
+import {DataTable} from 'primereact/datatable';
+import {Column} from 'primereact/column';
 
 class Personas extends React.Component
 {
