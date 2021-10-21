@@ -8,18 +8,18 @@ class ContadorStd extends React.Component {
       this.state = {contador: 0};
   }
 
-  onClickHandler(){
-    this.setState({
-       contador : this.state.contador+1
-    });
-  }
+  // onClickHandler(){
+  //   this.setState({
+  //      contador : this.state.contador+1
+  //   });
+  // }
 
   render()
   {
     return (
         <div>
           <p>Has cliqueado {this.state.contador} veces</p>
-          <button onClick={() => this.onClickHandler()}>
+          <button onClick={() =>   this.setState({   contador : this.state.contador + 1  })}>
             Incrementar
           </button>
         </div>

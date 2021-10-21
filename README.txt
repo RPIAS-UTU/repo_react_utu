@@ -65,3 +65,12 @@ constructor()
 static getDerivedStateFromProps()
 render()
 componentDidMount()
+
+
+============================================================================================================
+
+Ejecuta algo inmediatamente despues de cambiar un estado del componente 
+
+this.setState({
+      x: 2
+    },() => { console.log('new state', this.state); })

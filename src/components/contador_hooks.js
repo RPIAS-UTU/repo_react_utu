@@ -6,7 +6,7 @@ export default function Contador() {
 
   return (
     <div>
-      <p>Has cliqueado{contador} veces</p>
+      <p>Has cliqueado {contador} veces</p>
       <button onClick={() => setCount(contador + 1)}>
         Incrementar
       </button>
