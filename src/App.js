@@ -2,9 +2,12 @@ import '../node_modules/primereact/resources/primereact.min.css'; //Core CSS
 import '../node_modules/primeicons/primeicons.css'; //Iconos
 import '../node_modules/primereact/resources/themes/saga-blue/theme.css'; //Bootstrap 4 Theme
 
+
 import Personas from './components/lista_personas';
 import Contador from './components/contador_hooks';
 import ContadorStd from './components/contador_standard';
+import Combo from './components/combo';
+import ComboPrimeReact from './components/dropdown_primereact';
 
 function App() {
   return (
@@ -13,6 +16,10 @@ function App() {
     <br/>
     <ContadorStd></ContadorStd>
     <Personas></Personas>
+    <br/>
+    {/* <Combo></Combo> */}
+    <br/>
+    <ComboPrimeReact></ComboPrimeReact>
     </div>
   );
 }

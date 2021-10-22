@@ -71,6 +71,7 @@ class Personas extends React.Component
         {
             this.setState({loadingPersonas: true})
             this.setState({ datosCargados: true, personas: datosRespuesta})
+            
         }).catch(console.log).finally(() => this.setState({loadingPersonas: false}));
     };
 
