@@ -20,7 +20,13 @@ class ComboPrimeReact extends React.Component {
     //    { name: 'Hamburg', value: 'Hamburg' }, 
     //    { name: 'Munich', value: 'Munich' }];
 
-       this.paises = this.cargarPaises();
+    this.paises = [{ name: 'Berlin', value: 'Berlin' }, 
+    { name: 'Frankfurt', value: 'Frankfurt' },  
+    { name: 'Hamburg', value: 'Hamburg' }, 
+    { name: 'Munich', value: 'Munich' }];
+
+
+    
     }
 
     onPaisChange(evento) {
@@ -48,7 +54,16 @@ class ComboPrimeReact extends React.Component {
     axios.get('https://restcountries.com/v3.1/all')
     .then(res => {
         console.log(res.data);
-      return res.data;
+
+     this.paises = [{ name: 'Berlin', value: 'Berlin' }, 
+       { name: 'Frankfurt', value: 'Frankfurt' },  
+       { name: 'Hamburg', value: 'Hamburg' }, 
+       { name: 'Munich', value: 'Munich' }];
+
+    //this.paises = res.data;
+
+
+
     }).catch(error => {
         console.log(error);
     });
