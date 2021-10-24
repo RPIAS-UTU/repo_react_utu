@@ -7,8 +7,6 @@ import {Dropdown} from 'primereact/dropdown';
 
 
 class ComboPrimeReact extends React.Component {
-
-
   constructor(props) {
     super(props);
     this.state = {id_seleccionado: 0, paises: []};
