@@ -3,11 +3,12 @@ import '../node_modules/primeicons/primeicons.css'; //Iconos
 import '../node_modules/primereact/resources/themes/saga-blue/theme.css'; //Bootstrap 4 Theme
 
 
-import Personas from './components/lista_personas';
-import Contador from './components/contador_hooks';
-import ContadorStd from './components/contador_standard';
-import Combo from './components/combo';
-import ComboPrimeReact from './components/dropdown_primereact';
+import Personas from './componentes/lista_personas';
+import Contador from './componentes/contador_hooks';
+import ContadorStd from './componentes/contador_standard';
+import Combo from './componentes/combo';
+import ComboPrimeReact from './componentes/dropdown_primereact';
+import CreadorMemes from './componentes/memes_credor';
 
 function App() {
   return (
@@ -17,9 +18,12 @@ function App() {
     <ContadorStd></ContadorStd>
     <Personas></Personas>
     <br/>
-    {/* <Combo></Combo> */}
+    { <Combo></Combo> }
     <br/>
     <ComboPrimeReact></ComboPrimeReact>
+    <br/>
+
+    <CreadorMemes></CreadorMemes>
     </div>
   );
 }

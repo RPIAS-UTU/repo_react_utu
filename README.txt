@@ -39,6 +39,13 @@ npm install axios
 
 ============================================================================================================
 
+Utilizamos html2canvas para convertir un div a imagen
+
+https://html2canvas.hertzen.com/
+
+
+============================================================================================================
+
 Utilizar PrimeReact : https://primefaces.org/primereact/showcase/#/setup
 PrimeReact es un rico conjunto de componentes nativos de código abierto para React.
 PrimeReact está disponible en npm, asi que si queremos integrarlo a nuetra app ejecutamos :
