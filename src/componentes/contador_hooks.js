@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-export default function Contador() {
-  // Declara una nueva variable de estado, que llamaremos "count".
+ function Contador() {
+  // Declara una nueva variable de estado, que llamaremos "contador".
   const [contador, setCount] = useState(0);
 
   return (
@@ -13,4 +13,5 @@ export default function Contador() {
     </div>
   );
 }
+export default Contador;
 

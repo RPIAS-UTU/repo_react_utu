@@ -18,6 +18,12 @@ https://codepen.io/pen
 
 ============================================================================================================
 
+Utilizamos ROUTES para la navegacion
+
+npm install react-router-dom
+
+============================================================================================================
+
 Instrucciones
 
 Crear y correr proyecto react.
