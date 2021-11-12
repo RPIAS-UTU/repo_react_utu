@@ -1,6 +1,6 @@
 
-import Contador from 'contador_hooks';
-import ContadorStd from 'contador_standard';
+import Contador from './contador_hooks';
+import ContadorStd from './contador_standard';
 
 
 function Contadores() {
