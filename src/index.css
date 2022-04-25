@@ -24,7 +24,7 @@ code {
 .meme span {
   position: absolute;
   width: 100%;
-  left: 40px;
+  left: 320px;
   margin-top: 290px;
   font-size: 48px;
   color: white;
@@ -36,6 +36,11 @@ code {
 
 .meme span:nth-child(1)  {
   margin-top: 70px;
+}
+
+
+.meme span:nth-child(2)  {
+  margin-top: 320px;
 }
 
 .meme img {

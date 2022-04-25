@@ -31,13 +31,13 @@ function App() {
   </Router>
   <br />
 
-      <Menu></Menu>
+      {/* <Menu></Menu>
      
       <Personas></Personas>
       <br />
       {<Combo></Combo>}
       <br />
-      <ComboPrimeReact></ComboPrimeReact>
+      <ComboPrimeReact></ComboPrimeReact> */}
       <br />
 
       <CreadorMemes></CreadorMemes>
